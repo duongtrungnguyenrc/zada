@@ -6,11 +6,14 @@
 	path = apps/api-gateway
 	url = https://github.com/duongtrungnguyenrc/zada-api-gateway
 
-[submodule "user-service"]
-	path = apps/user-service
-	url = https://github.com/duongtrungnguyenrc/zada-user-service
-
 [submodule "nestro-service"]
 	path = apps/nestro-service
 	url = https://github.com/duongtrungnguyenrc/zada-nestro-service
 
+[submodule "notification-service"]
+	path = apps/notification-service
+	url = https://github.com/duongtrungnguyenrc/zada-notification-service
+
+[submodule "user-service"]
+	path = apps/user-service
+	url = https://github.com/duongtrungnguyenrc/zada-user-service
