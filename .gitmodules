@@ -1,0 +1,16 @@
+[submodule "common-lib"]
+	path = libs/common-lib
+	url = https://github.com/duongtrungnguyenrc/zada-user-service
+
+[submodule "api-gateway"]
+	path = apps/api-gateway
+	url = https://github.com/duongtrungnguyenrc/zada-api-gateway
+
+[submodule "user-service"]
+	path = apps/user-service
+	url = https://github.com/duongtrungnguyenrc/zada-user-service
+
+[submodule "nestro-service"]
+	path = apps/nestro-service
+	url = https://github.com/duongtrungnguyenrc/zada-nestro-service
+
