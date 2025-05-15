@@ -1,6 +1,6 @@
 [submodule "common-lib"]
 	path = libs/common-lib
-	url = https://github.com/duongtrungnguyenrc/zada-user-service
+	url = https://github.com/duongtrungnguyenrc/zada-common-lib
 
 [submodule "api-gateway"]
 	path = apps/api-gateway
@@ -17,7 +17,6 @@
 [submodule "auth-service"]
 	path = apps/auth-service
 	url = https://github.com/duongtrungnguyenrc/zada-auth-service
-
 
 [submodule "user-service"]
 	path = apps/user-service
