@@ -17,3 +17,7 @@
 [submodule "user-service"]
 	path = apps/user-service
 	url = https://github.com/duongtrungnguyenrc/zada-user-service
+
+[submodule "media-service"]
+	path = apps/media-service
+	url = https://github.com/duongtrungnguyenrc/zada-media-service

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apps/api-gateway" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apps/nestro-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apps/notification-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apps/user-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/common-lib" vcs="Git" />
+  </component>
+</project>
