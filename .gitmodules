@@ -14,6 +14,11 @@
 	path = apps/notification-service
 	url = https://github.com/duongtrungnguyenrc/zada-notification-service
 
+[submodule "auth-service"]
+	path = apps/auth-service
+	url = https://github.com/duongtrungnguyenrc/zada-auth-service
+
+
 [submodule "user-service"]
 	path = apps/user-service
 	url = https://github.com/duongtrungnguyenrc/zada-user-service
@@ -21,3 +26,4 @@
 [submodule "media-service"]
 	path = apps/media-service
 	url = https://github.com/duongtrungnguyenrc/zada-media-service
+

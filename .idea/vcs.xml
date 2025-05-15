@@ -3,6 +3,8 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apps/api-gateway" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apps/auth-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apps/media-service" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apps/nestro-service" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apps/notification-service" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apps/user-service" vcs="Git" />
