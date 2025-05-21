@@ -1,5 +1,7 @@
 ### Kiến Trúc Microservices Chi Tiết cho Nền Tảng Thương Mại Điện Tử
 
+Dưới đây là danh sách chi tiết các microservices và API của chúng theo yêu cầu của bạn:
+
 ## 1. Auth Service (Dịch vụ Xác thực)
 
 **Trách nhiệm**: Quản lý xác thực người dùng, đăng nhập, đăng ký, và phân quyền.
@@ -16,7 +18,6 @@
 - **Method**: POST
 - **Endpoint**: `/auth/register`
 - **Tham số**:
-
 - **Body**:
 
 ```json
@@ -29,7 +30,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -43,15 +43,13 @@
 ```
 
 - **Output lỗi**:
-
-- **Status**: 400 Bad Request (email đã tồn tại)
+- **Status**: 400 Bad Request
 
 ### 1.2. Đăng nhập
 
 - **Method**: POST
 - **Endpoint**: `/auth/login`
 - **Tham số**:
-
 - **Body**:
 
 ```json
@@ -62,7 +60,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -76,7 +73,6 @@
 ```
 
 - **Output lỗi**:
-
 - **Status**: 401 Unauthorized
 
 ### 1.3. Làm mới token
@@ -84,7 +80,6 @@
 - **Method**: POST
 - **Endpoint**: `/auth/refresh-token`
 - **Tham số**:
-
 - **Body**:
 
 ```json
@@ -94,7 +89,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -107,7 +101,6 @@
 ```
 
 - **Output lỗi**:
-
 - **Status**: 401 Unauthorized
 
 ### 1.4. Đăng xuất
@@ -115,11 +108,8 @@
 - **Method**: POST
 - **Endpoint**: `/auth/logout`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -134,7 +124,6 @@
 - **Method**: POST
 - **Endpoint**: `/auth/forgot-password`
 - **Tham số**:
-
 - **Body**:
 
 ```json
@@ -144,7 +133,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -159,7 +147,6 @@
 - **Method**: POST
 - **Endpoint**: `/auth/reset-password`
 - **Tham số**:
-
 - **Body**:
 
 ```json
@@ -170,7 +157,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -181,7 +167,6 @@
 ```
 
 - **Output lỗi**:
-
 - **Status**: 400 Bad Request
 
 ### 1.7. Xác minh email
@@ -189,11 +174,8 @@
 - **Method**: GET
 - **Endpoint**: `/auth/verify-email/{token}`
 - **Tham số**:
-
 - **Path**: token - Mã xác minh email
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -204,7 +186,6 @@
 ```
 
 - **Output lỗi**:
-
 - **Status**: 400 Bad Request
 
 ## 2. User Service (Dịch vụ Người dùng)
@@ -224,12 +205,9 @@
 - **Method**: GET
 - **Endpoint**: `/users/{id}`
 - **Tham số**:
-
 - **Path**: id - ID người dùng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -247,7 +225,6 @@
 ```
 
 - **Output lỗi**:
-
 - **Status**: 404 Not Found
 
 ### 2.2. Cập nhật thông tin người dùng
@@ -255,7 +232,6 @@
 - **Method**: PUT
 - **Endpoint**: `/users/{id}`
 - **Tham số**:
-
 - **Path**: id - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -269,7 +245,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -285,7 +260,6 @@
 ```
 
 - **Output lỗi**:
-
 - **Status**: 403 Forbidden
 
 ### 2.3. Đổi mật khẩu
@@ -293,7 +267,6 @@
 - **Method**: PUT
 - **Endpoint**: `/users/{id}/change-password`
 - **Tham số**:
-
 - **Path**: id - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -306,7 +279,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -317,7 +289,6 @@
 ```
 
 - **Output lỗi**:
-
 - **Status**: 400 Bad Request
 
 ### 2.4. Lấy danh sách địa chỉ
@@ -325,12 +296,9 @@
 - **Method**: GET
 - **Endpoint**: `/users/{id}/addresses`
 - **Tham số**:
-
 - **Path**: id - ID người dùng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -356,7 +324,6 @@
 - **Method**: POST
 - **Endpoint**: `/users/{id}/addresses`
 - **Tham số**:
-
 - **Path**: id - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -376,7 +343,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -400,12 +366,9 @@
 - **Method**: PUT
 - **Endpoint**: `/users/{id}/addresses/{addressId}`
 - **Tham số**:
-
 - **Path**:
-
 - id - ID người dùng
 - addressId - ID địa chỉ
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -424,7 +387,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -448,20 +410,13 @@
 - **Method**: DELETE
 - **Endpoint**: `/users/{id}/addresses/{addressId}`
 - **Tham số**:
-
 - **Path**:
-
 - id - ID người dùng
 - addressId - ID địa chỉ
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
-
 - **Output lỗi**:
-
 - **Status**: 404 Not Found
 
 ### 2.8. Đặt địa chỉ mặc định
@@ -469,16 +424,11 @@
 - **Method**: PUT
 - **Endpoint**: `/users/{id}/addresses/{addressId}/default`
 - **Tham số**:
-
 - **Path**:
-
 - id - ID người dùng
 - addressId - ID địa chỉ
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -493,16 +443,12 @@
 - **Method**: GET
 - **Endpoint**: `/users/{id}/activities`
 - **Tham số**:
-
 - **Path**: id - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -543,7 +489,6 @@
 - **Method**: POST
 - **Endpoint**: `/sellers`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -557,7 +502,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -575,7 +519,6 @@
 ```
 
 - **Output lỗi**:
-
 - **Status**: 400 Bad Request
 
 ### 3.2. Lấy thông tin người bán
@@ -583,11 +526,8 @@
 - **Method**: GET
 - **Endpoint**: `/sellers/{id}`
 - **Tham số**:
-
 - **Path**: id - ID người bán
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -610,7 +550,6 @@
 - **Method**: PUT
 - **Endpoint**: `/sellers/{id}`
 - **Tham số**:
-
 - **Path**: id - ID người bán
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -624,7 +563,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -643,16 +581,12 @@
 - **Method**: GET
 - **Endpoint**: `/sellers/{id}/metrics`
 - **Tham số**:
-
 - **Path**: id - ID người bán
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
 - periodStart - Thời gian bắt đầu (timestamp)
 - periodEnd - Thời gian kết thúc (timestamp)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -674,19 +608,15 @@
 - **Method**: GET
 - **Endpoint**: `/sellers/{id}/transactions`
 - **Tham số**:
-
 - **Path**: id - ID người bán
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
 - startDate - Ngày bắt đầu (timestamp)
 - endDate - Ngày kết thúc (timestamp)
 - status - Trạng thái giao dịch
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -716,12 +646,9 @@
 - **Method**: GET
 - **Endpoint**: `/sellers/categories/{categoryId}/fees`
 - **Tham số**:
-
 - **Path**: categoryId - ID danh mục
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -757,7 +684,6 @@
 - **Method**: POST
 - **Endpoint**: `/products`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -778,7 +704,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -807,11 +732,8 @@
 - **Method**: GET
 - **Endpoint**: `/products/{id}`
 - **Tham số**:
-
 - **Path**: id - ID sản phẩm
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -859,7 +781,6 @@
 - **Method**: PUT
 - **Endpoint**: `/products/{id}`
 - **Tham số**:
-
 - **Path**: id - ID sản phẩm
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -875,7 +796,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -896,16 +816,11 @@
 - **Method**: DELETE
 - **Endpoint**: `/products/{id}`
 - **Tham số**:
-
 - **Path**: id - ID sản phẩm
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
-
 - **Output lỗi**:
-
 - **Status**: 403 Forbidden
 
 ### 4.5. Tìm kiếm sản phẩm
@@ -913,9 +828,7 @@
 - **Method**: GET
 - **Endpoint**: `/products/search`
 - **Tham số**:
-
 - **Query**:
-
 - q - Từ khóa tìm kiếm
 - categoryId - ID danh mục
 - minPrice - Giá tối thiểu
@@ -923,9 +836,7 @@
 - sort - Sắp xếp (newest, priceAsc, priceDesc, popular)
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -957,11 +868,8 @@
 - **Method**: GET
 - **Endpoint**: `/products/{id}/variants`
 - **Tham số**:
-
 - **Path**: id - ID sản phẩm
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -988,7 +896,6 @@
 - **Method**: POST
 - **Endpoint**: `/products/{id}/variants`
 - **Tham số**:
-
 - **Path**: id - ID sản phẩm
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -1009,7 +916,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -1036,12 +942,9 @@
 - **Method**: PUT
 - **Endpoint**: `/products/{id}/variants/{variantId}`
 - **Tham số**:
-
 - **Path**:
-
 - id - ID sản phẩm
 - variantId - ID biến thể
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -1055,7 +958,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1074,16 +976,11 @@
 - **Method**: DELETE
 - **Endpoint**: `/products/{id}/variants/{variantId}`
 - **Tham số**:
-
 - **Path**:
-
 - id - ID sản phẩm
 - variantId - ID biến thể
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ### 4.10. Lấy hình ảnh sản phẩm
@@ -1091,11 +988,8 @@
 - **Method**: GET
 - **Endpoint**: `/products/{id}/images`
 - **Tham số**:
-
 - **Path**: id - ID sản phẩm
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1114,7 +1008,6 @@
 - **Method**: POST
 - **Endpoint**: `/products/{id}/images`
 - **Tham số**:
-
 - **Path**: id - ID sản phẩm
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -1127,7 +1020,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -1145,16 +1037,11 @@
 - **Method**: DELETE
 - **Endpoint**: `/products/{id}/images/{imageId}`
 - **Tham số**:
-
 - **Path**:
-
 - id - ID sản phẩm
 - imageId - ID hình ảnh
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ### 4.13. Lấy danh sách danh mục
@@ -1162,14 +1049,10 @@
 - **Method**: GET
 - **Endpoint**: `/categories`
 - **Tham số**:
-
 - **Query**:
-
 - parentId - ID danh mục cha (tùy chọn)
 - level - Cấp độ danh mục (tùy chọn)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1198,11 +1081,8 @@
 - **Method**: GET
 - **Endpoint**: `/categories/{id}`
 - **Tham số**:
-
 - **Path**: id - ID danh mục
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1233,7 +1113,6 @@
 - **Method**: POST
 - **Endpoint**: `/categories`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -1248,7 +1127,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -1269,7 +1147,6 @@
 - **Method**: PUT
 - **Endpoint**: `/categories/{id}`
 - **Tham số**:
-
 - **Path**: id - ID danh mục
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -1285,7 +1162,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1306,15 +1182,11 @@
 - **Method**: GET
 - **Endpoint**: `/products/{id}/recommendations`
 - **Tham số**:
-
 - **Path**: id - ID sản phẩm
 - **Query**:
-
 - type - Loại đề xuất (similar, frequentlyBoughtTogether, etc.)
 - limit - Số lượng (mặc định: 10)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1349,12 +1221,9 @@
 - **Method**: GET
 - **Endpoint**: `/inventory/variants/{variantId}`
 - **Tham số**:
-
 - **Path**: variantId - ID biến thể sản phẩm
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1375,7 +1244,6 @@
 - **Method**: PUT
 - **Endpoint**: `/inventory/variants/{variantId}`
 - **Tham số**:
-
 - **Path**: variantId - ID biến thể sản phẩm
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -1388,7 +1256,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1407,11 +1274,8 @@
 - **Method**: GET
 - **Endpoint**: `/warehouses`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1433,12 +1297,9 @@
 - **Method**: GET
 - **Endpoint**: `/warehouses/{id}`
 - **Tham số**:
-
 - **Path**: id - ID kho hàng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1458,7 +1319,6 @@
 - **Method**: POST
 - **Endpoint**: `/warehouses`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -1473,7 +1333,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -1493,7 +1352,6 @@
 - **Method**: PUT
 - **Endpoint**: `/warehouses/{id}`
 - **Tham số**:
-
 - **Path**: id - ID kho hàng
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -1509,7 +1367,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1529,16 +1386,12 @@
 - **Method**: GET
 - **Endpoint**: `/warehouses/{id}/inventory`
 - **Tham số**:
-
 - **Path**: id - ID kho hàng
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1563,7 +1416,7 @@
 
 ## 6. Cart Service (Dịch vụ Giỏ hàng)
 
-**Trách nhiệm**: Quản lý giỏ hàng và các mặt hàng trong giỏ hàng.
+**Trách nhiệm**: Quản lý giỏ hàng của người dùng.
 
 **Bảng dữ liệu**:
 
@@ -1577,12 +1430,9 @@
 - **Method**: GET
 - **Endpoint**: `/carts/{userId}`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1630,7 +1480,6 @@
 - **Method**: POST
 - **Endpoint**: `/carts/{userId}/items`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -1643,7 +1492,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -1658,7 +1506,6 @@
 ```
 
 - **Output lỗi**:
-
 - **Status**: 400 Bad Request
 
 ### 6.3. Cập nhật sản phẩm trong giỏ hàng
@@ -1666,12 +1513,9 @@
 - **Method**: PUT
 - **Endpoint**: `/carts/{userId}/items/{itemId}`
 - **Tham số**:
-
 - **Path**:
-
 - userId - ID người dùng
 - itemId - ID mặt hàng trong giỏ
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -1682,7 +1526,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1701,16 +1544,11 @@
 - **Method**: DELETE
 - **Endpoint**: `/carts/{userId}/items/{itemId}`
 - **Tham số**:
-
 - **Path**:
-
 - userId - ID người dùng
 - itemId - ID mặt hàng trong giỏ
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ### 6.5. Xóa toàn bộ giỏ hàng
@@ -1718,17 +1556,14 @@
 - **Method**: DELETE
 - **Endpoint**: `/carts/{userId}`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ## 7. Order Service (Dịch vụ Đơn hàng)
 
-**Trách nhiệm**: Quản lý đơn hàng và các mặt hàng trong đơn hàng.
+**Trách nhiệm**: Xử lý và theo dõi đơn hàng.
 
 **Bảng dữ liệu**:
 
@@ -1742,7 +1577,6 @@
 - **Method**: POST
 - **Endpoint**: `/orders`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -1766,7 +1600,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -1801,12 +1634,9 @@
 - **Method**: GET
 - **Endpoint**: `/orders/{id}`
 - **Tham số**:
-
 - **Path**: id - ID đơn hàng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1881,7 +1711,6 @@
 - **Method**: PUT
 - **Endpoint**: `/orders/{id}/status`
 - **Tham số**:
-
 - **Path**: id - ID đơn hàng
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -1893,7 +1722,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1910,17 +1738,13 @@
 - **Method**: GET
 - **Endpoint**: `/users/{userId}/orders`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
-- status - Tr���ng thái đơn hàng (tùy chọn)
+- status - Trạng thái đơn hàng (tùy chọn)
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1947,17 +1771,13 @@
 - **Method**: GET
 - **Endpoint**: `/sellers/{sellerId}/orders`
 - **Tham số**:
-
 - **Path**: sellerId - ID người bán
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
 - status - Trạng thái đơn hàng (tùy chọn)
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -1986,7 +1806,7 @@
 
 ## 8. Payment Service (Dịch vụ Thanh toán)
 
-**Trách nhiệm**: Xử lý thanh toán và theo dõi trạng thái thanh toán.
+**Trách nhiệm**: Xử lý các giao dịch thanh toán.
 
 **Bảng dữ liệu**:
 
@@ -1999,7 +1819,6 @@
 - **Method**: POST
 - **Endpoint**: `/payments`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -2012,7 +1831,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2033,12 +1851,9 @@
 - **Method**: GET
 - **Endpoint**: `/payments/{id}`
 - **Tham số**:
-
 - **Path**: id - ID thanh toán
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2060,7 +1875,6 @@
 - **Method**: PUT
 - **Endpoint**: `/payments/{id}/status`
 - **Tham số**:
-
 - **Path**: id - ID thanh toán
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -2073,7 +1887,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2091,12 +1904,9 @@
 - **Method**: GET
 - **Endpoint**: `/orders/{orderId}/payments`
 - **Tham số**:
-
 - **Path**: orderId - ID đơn hàng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2118,12 +1928,9 @@
 - **Method**: POST
 - **Endpoint**: `/payments/webhook/{provider}`
 - **Tham số**:
-
 - **Path**: provider - Nhà cung cấp dịch vụ thanh toán
 - **Body**: Tùy thuộc vào nhà cung cấp
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2135,7 +1942,7 @@
 
 ## 9. Shipping Service (Dịch vụ Vận chuyển)
 
-**Trách nhiệm**: Quản lý vận chuyển và theo dõi trạng thái giao hàng.
+**Trách nhiệm**: Quản lý thông tin vận chuyển và giao hàng.
 
 **Bảng dữ liệu**:
 
@@ -2148,7 +1955,6 @@
 - **Method**: POST
 - **Endpoint**: `/shipments`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -2162,7 +1968,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2183,12 +1988,9 @@
 - **Method**: GET
 - **Endpoint**: `/shipments/{id}`
 - **Tham số**:
-
 - **Path**: id - ID vận chuyển
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2218,7 +2020,6 @@
 - **Method**: PUT
 - **Endpoint**: `/shipments/{id}/status`
 - **Tham số**:
-
 - **Path**: id - ID vận chuyển
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -2231,7 +2032,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2249,12 +2049,9 @@
 - **Method**: GET
 - **Endpoint**: `/orders/{orderId}/shipments`
 - **Tham số**:
-
 - **Path**: orderId - ID đơn hàng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2277,12 +2074,9 @@
 - **Method**: POST
 - **Endpoint**: `/shipments/webhook/{carrier}`
 - **Tham số**:
-
 - **Path**: carrier - Nhà vận chuyển
 - **Body**: Tùy thuộc vào nhà vận chuyển
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2294,7 +2088,7 @@
 
 ## 10. Review Service (Dịch vụ Đánh giá)
 
-**Trách nhiệm**: Quản lý đánh giá sản phẩm và hình ảnh đánh giá.
+**Trách nhiệm**: Quản lý đánh giá và nhận xét sản phẩm.
 
 **Bảng dữ liệu**:
 
@@ -2308,7 +2102,6 @@
 - **Method**: POST
 - **Endpoint**: `/reviews`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -2328,7 +2121,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2356,11 +2148,8 @@
 - **Method**: GET
 - **Endpoint**: `/reviews/{id}`
 - **Tham số**:
-
 - **Path**: id - ID đánh giá
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2393,7 +2182,6 @@
 - **Method**: PUT
 - **Endpoint**: `/reviews/{id}`
 - **Tham số**:
-
 - **Path**: id - ID đánh giá
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -2406,7 +2194,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2424,12 +2211,9 @@
 - **Method**: DELETE
 - **Endpoint**: `/reviews/{id}`
 - **Tham số**:
-
 - **Path**: id - ID đánh giá
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ### 10.5. Lấy đánh giá của sản phẩm
@@ -2437,17 +2221,13 @@
 - **Method**: GET
 - **Endpoint**: `/products/{productId}/reviews`
 - **Tham số**:
-
 - **Path**: productId - ID sản phẩm
 - **Query**:
-
 - rating - Lọc theo số sao (tùy chọn)
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
 - sort - Sắp xếp (newest, highestRating, lowestRating)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2497,7 +2277,6 @@
 - **Method**: POST
 - **Endpoint**: `/reviews/{id}/images`
 - **Tham số**:
-
 - **Path**: id - ID đánh giá
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -2509,7 +2288,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2526,21 +2304,16 @@
 - **Method**: DELETE
 - **Endpoint**: `/reviews/{id}/images/{imageId}`
 - **Tham số**:
-
 - **Path**:
-
 - id - ID đánh giá
 - imageId - ID hình ảnh
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ## 11. Promotion Service (Dịch vụ Khuyến mãi)
 
-**Trách nhiệm**: Quản lý khuyến mãi, mã giảm giá, và flash sale.
+**Trách nhiệm**: Quản lý chương trình khuyến mãi và mã giảm giá.
 
 **Bảng dữ liệu**:
 
@@ -2557,7 +2330,6 @@
 - **Method**: POST
 - **Endpoint**: `/promotions`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -2577,7 +2349,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2603,12 +2374,9 @@
 - **Method**: GET
 - **Endpoint**: `/promotions/{id}`
 - **Tham số**:
-
 - **Path**: id - ID khuyến mãi
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2641,7 +2409,6 @@
 - **Method**: PUT
 - **Endpoint**: `/promotions/{id}`
 - **Tham số**:
-
 - **Path**: id - ID khuyến mãi
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -2660,7 +2427,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2683,12 +2449,9 @@
 - **Method**: DELETE
 - **Endpoint**: `/promotions/{id}`
 - **Tham số**:
-
 - **Path**: id - ID khuyến mãi
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ### 11.5. Lấy khuyến mãi đang hoạt động
@@ -2696,14 +2459,10 @@
 - **Method**: GET
 - **Endpoint**: `/promotions/active`
 - **Tham số**:
-
 - **Query**:
-
 - categoryId - ID danh mục (tùy chọn)
 - productId - ID sản phẩm (tùy chọn)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2728,7 +2487,6 @@
 - **Method**: POST
 - **Endpoint**: `/promotions/{id}/products`
 - **Tham số**:
-
 - **Path**: id - ID khuyến mãi
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -2740,7 +2498,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2757,16 +2514,11 @@
 - **Method**: DELETE
 - **Endpoint**: `/promotions/{id}/products/{productId}`
 - **Tham số**:
-
 - **Path**:
-
 - id - ID khuyến mãi
 - productId - ID sản phẩm
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ### 11.8. Gán khuyến mãi cho người dùng
@@ -2774,16 +2526,11 @@
 - **Method**: POST
 - **Endpoint**: `/users/{userId}/promotions/{promotionId}`
 - **Tham số**:
-
 - **Path**:
-
 - userId - ID người dùng
 - promotionId - ID khuyến mãi
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2801,15 +2548,11 @@
 - **Method**: GET
 - **Endpoint**: `/users/{userId}/promotions`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
 - isUsed - Lọc theo đã sử dụng (tùy chọn)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2838,7 +2581,6 @@
 - **Method**: POST
 - **Endpoint**: `/flash-sales`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -2854,7 +2596,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2875,7 +2616,6 @@
 - **Method**: GET
 - **Endpoint**: `/flash-sales/active`
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -2914,7 +2654,6 @@
 - **Method**: POST
 - **Endpoint**: `/flash-sales/{id}/items`
 - **Tham số**:
-
 - **Path**: id - ID flash sale
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -2929,7 +2668,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2947,7 +2685,7 @@
 
 ## 12. Notification Service (Dịch vụ Thông báo)
 
-**Trách nhiệm**: Quản lý thông báo cho người dùng.
+**Trách nhiệm**: Gửi thông báo đến người dùng.
 
 **Bảng dữ liệu**:
 
@@ -2960,7 +2698,6 @@
 - **Method**: POST
 - **Endpoint**: `/notifications`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -2976,7 +2713,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -2999,17 +2735,13 @@
 - **Method**: GET
 - **Endpoint**: `/users/{userId}/notifications`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
 - isRead - Lọc theo đã đọc (tùy chọn)
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -3040,12 +2772,9 @@
 - **Method**: PUT
 - **Endpoint**: `/notifications/{id}/read`
 - **Tham số**:
-
 - **Path**: id - ID thông báo
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -3061,17 +2790,14 @@
 - **Method**: DELETE
 - **Endpoint**: `/notifications/{id}`
 - **Tham số**:
-
 - **Path**: id - ID thông báo
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ## 13. Wishlist Service (Dịch vụ Danh sách yêu thích)
 
-**Trách nhiệm**: Quản lý danh sách yêu thích của người dùng.
+**Trách nhiệm**: Quản lý danh sách sản phẩm yêu thích.
 
 **Bảng dữ liệu**:
 
@@ -3085,7 +2811,6 @@
 - **Method**: POST
 - **Endpoint**: `/users/{userId}/wishlists`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -3097,7 +2822,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -3114,12 +2838,9 @@
 - **Method**: GET
 - **Endpoint**: `/users/{userId}/wishlists`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -3138,7 +2859,6 @@
 - **Method**: PUT
 - **Endpoint**: `/wishlists/{id}`
 - **Tham số**:
-
 - **Path**: id - ID danh sách yêu thích
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -3150,7 +2870,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -3166,12 +2885,9 @@
 - **Method**: DELETE
 - **Endpoint**: `/wishlists/{id}`
 - **Tham số**:
-
 - **Path**: id - ID danh sách yêu thích
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ### 13.5. Thêm sản phẩm vào danh sách yêu thích
@@ -3179,7 +2895,6 @@
 - **Method**: POST
 - **Endpoint**: `/wishlists/{id}/items`
 - **Tham số**:
-
 - **Path**: id - ID danh sách yêu thích
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -3191,7 +2906,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -3209,21 +2923,16 @@
 - **Method**: DELETE
 - **Endpoint**: `/wishlists/{id}/items/{productId}`
 - **Tham số**:
-
 - **Path**:
-
 - id - ID danh sách yêu thích
 - productId - ID sản phẩm
-
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 204 No Content
 
 ## 14. Messaging Service (Dịch vụ Tin nhắn)
 
-**Trách nhiệm**: Quản lý tin nhắn giữa người dùng và người bán.
+**Trách nhiệm**: Hỗ trợ giao tiếp giữa người mua và người bán.
 
 **Bảng dữ liệu**:
 
@@ -3237,7 +2946,6 @@
 - **Method**: POST
 - **Endpoint**: `/conversations`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -3249,7 +2957,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -3269,12 +2976,9 @@
 - **Method**: GET
 - **Endpoint**: `/users/{userId}/conversations`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -3306,12 +3010,9 @@
 - **Method**: GET
 - **Endpoint**: `/sellers/{sellerId}/conversations`
 - **Tham số**:
-
 - **Path**: sellerId - ID người bán
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -3343,16 +3044,12 @@
 - **Method**: GET
 - **Endpoint**: `/conversations/{id}/messages`
 - **Tham số**:
-
 - **Path**: id - ID cuộc trò chuyện
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -3381,7 +3078,6 @@
 - **Method**: POST
 - **Endpoint**: `/conversations/{id}/messages`
 - **Tham số**:
-
 - **Path**: id - ID cuộc trò chuyện
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -3396,7 +3092,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -3418,12 +3113,9 @@
 - **Method**: PUT
 - **Endpoint**: `/messages/{id}/read`
 - **Tham số**:
-
 - **Path**: id - ID tin nhắn
 - **Header**: Authorization: Bearer accessToken
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -3434,514 +3126,103 @@
 }
 ```
 
-## 15. Return & Refund Service (Dịch vụ Trả hàng & Hoàn tiền)
+## 15. Content Suggestion Service (Dịch vụ Gợi ý nội dung)
 
-**Trách nhiệm**: Quản lý yêu cầu trả hàng và hoàn tiền.
+**Trách nhiệm**: Gợi ý nội dung phù hợp cho người dùng dựa trên hành vi và sở thích.
 
 **Bảng dữ liệu**:
 
-- `returns`
-- `return_items`
+- `user_preferences`
+- `content_suggestions`
+- `user_interactions`
 
 **APIs**:
 
-### 15.1. Tạo yêu cầu trả hàng
-
-- **Method**: POST
-- **Endpoint**: `/returns`
-- **Tham số**:
-
-- **Header**: Authorization: Bearer accessToken
-- **Body**:
-
-```json
-{
-  "orderId": "string",
-  "userId": "string",
-  "reason": "string",
-  "items": [
-    {
-      "orderItemId": "string",
-      "quantity": "number",
-      "condition": "string",
-      "reasonDetails": "string"
-    }
-  ]
-}
-```
-
-- **Output thành công**:
-
-- **Status**: 201 Created
-- **Response**:
-
-```json
-{
-  "id": "string",
-  "orderId": "string",
-  "userId": "string",
-  "reason": "string",
-  "status": "pending",
-  "createdAt": "timestamp",
-  "items": [
-    {
-      "id": "string",
-      "orderItemId": "string",
-      "quantity": "number",
-      "condition": "string",
-      "reasonDetails": "string"
-    }
-  ]
-}
-```
-
-### 15.2. Lấy chi tiết yêu cầu trả hàng
+### 15.1. Lấy sản phẩm gợi ý cho người dùng
 
 - **Method**: GET
-- **Endpoint**: `/returns/{id}`
+- **Endpoint**: `/suggestions/users/{userId}/products`
 - **Tham số**:
-
-- **Path**: id - ID yêu cầu trả hàng
+- **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
-
+- **Query**:
+- limit - Số lượng (mặc định: 20)
+- category - Danh mục (tùy chọn)
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
 ```json
 {
-  "id": "string",
-  "orderId": "string",
-  "userId": "string",
-  "reason": "string",
-  "status": "string",
-  "createdAt": "timestamp",
-  "updatedAt": "timestamp",
-  "refundAmount": "number",
   "items": [
     {
       "id": "string",
-      "orderItemId": "string",
-      "quantity": "number",
-      "condition": "string",
-      "reasonDetails": "string",
+      "productId": "string",
+      "score": "number",
+      "reason": "string",
       "product": {
         "id": "string",
         "name": "string",
-        "imageUrl": "string"
+        "basePrice": "number",
+        "imageUrl": "string",
+        "rating": "number"
       }
     }
   ],
-  "order": {
+  "total": "number"
+}
+```
+
+### 15.2. Lấy danh mục gợi ý cho người dùng
+
+- **Method**: GET
+- **Endpoint**: `/suggestions/users/{userId}/categories`
+- **Tham số**:
+- **Path**: userId - ID người dùng
+- **Header**: Authorization: Bearer accessToken
+- **Query**:
+- limit - Số lượng (mặc định: 10)
+- **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
+
+```json
+[
+  {
     "id": "string",
-    "createdAt": "timestamp",
-    "total": "number"
+    "categoryId": "string",
+    "score": "number",
+    "category": {
+      "id": "string",
+      "name": "string",
+      "imageUrl": "string"
+    }
+  }
+]
+```
+
+### 15.3. Lưu tương tác người dùng
+
+- **Method**: POST
+- **Endpoint**: `/suggestions/interactions`
+- **Tham số**:
+- **Header**: Authorization: Bearer accessToken
+- **Body**:
+
+```json
+{
+  "userId": "string",
+  "entityId": "string",
+  "entityType": "string",
+  "interactionType": "string",
+  "metadata": {
+    "key1": "value1",
+    "key2": "value2"
   }
 }
 ```
 
-### 15.3. Cập nhật trạng thái yêu cầu trả hàng
-
-- **Method**: PUT
-- **Endpoint**: `/returns/{id}/status`
-- **Tham số**:
-
-- **Path**: id - ID yêu cầu trả hàng
-- **Header**: Authorization: Bearer accessToken
-- **Body**:
-
-```json
-{
-  "status": "string",
-  "refundAmount": "number"
-}
-```
-
 - **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-{
-  "id": "string",
-  "status": "string",
-  "updatedAt": "timestamp",
-  "refundAmount": "number"
-}
-```
-
-### 15.4. Lấy yêu cầu trả hàng của người dùng
-
-- **Method**: GET
-- **Endpoint**: `/users/{userId}/returns`
-- **Tham số**:
-
-- **Path**: userId - ID người dùng
-- **Header**: Authorization: Bearer accessToken
-- **Query**:
-
-- status - Trạng thái yêu cầu (tùy chọn)
-- page - Số trang (mặc định: 1)
-- limit - Số lượng mỗi trang (mặc định: 20)
-
-- **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-{
-  "items": [
-    {
-      "id": "string",
-      "orderId": "string",
-      "reason": "string",
-      "status": "string",
-      "createdAt": "timestamp",
-      "refundAmount": "number",
-      "itemCount": "number"
-    }
-  ],
-  "total": "number",
-  "page": "number",
-  "limit": "number",
-  "totalPages": "number"
-}
-```
-
-### 15.5. Lấy yêu cầu trả hàng của người bán
-
-- **Method**: GET
-- **Endpoint**: `/sellers/{sellerId}/returns`
-- **Tham số**:
-
-- **Path**: sellerId - ID người bán
-- **Header**: Authorization: Bearer accessToken
-- **Query**:
-
-- status - Trạng thái yêu cầu (tùy chọn)
-- page - Số trang (mặc định: 1)
-- limit - Số lượng mỗi trang (mặc định: 20)
-
-- **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-{
-  "items": [
-    {
-      "id": "string",
-      "orderId": "string",
-      "userId": "string",
-      "reason": "string",
-      "status": "string",
-      "createdAt": "timestamp",
-      "refundAmount": "number",
-      "itemCount": "number",
-      "user": {
-        "id": "string",
-        "fullName": "string"
-      }
-    }
-  ],
-  "total": "number",
-  "page": "number",
-  "limit": "number",
-  "totalPages": "number"
-}
-```
-
-## 16. Dispute Resolution Service (Dịch vụ Giải quyết Tranh chấp)
-
-**Trách nhiệm**: Quản lý tranh chấp giữa người dùng và người bán.
-
-**Bảng dữ liệu**:
-
-- `disputes`
-- `dispute_messages`
-
-**APIs**:
-
-### 16.1. Tạo tranh chấp mới
-
-- **Method**: POST
-- **Endpoint**: `/disputes`
-- **Tham số**:
-
-- **Header**: Authorization: Bearer accessToken
-- **Body**:
-
-```json
-{
-  "orderId": "string",
-  "userId": "string",
-  "sellerId": "string",
-  "issueType": "string",
-  "message": "string"
-}
-```
-
-- **Output thành công**:
-
-- **Status**: 201 Created
-- **Response**:
-
-```json
-{
-  "id": "string",
-  "orderId": "string",
-  "userId": "string",
-  "sellerId": "string",
-  "issueType": "string",
-  "status": "open",
-  "createdAt": "timestamp",
-  "firstMessage": {
-    "id": "string",
-    "senderId": "string",
-    "senderType": "user",
-    "message": "string",
-    "createdAt": "timestamp"
-  }
-}
-```
-
-### 16.2. Lấy chi tiết tranh chấp
-
-- **Method**: GET
-- **Endpoint**: `/disputes/{id}`
-- **Tham số**:
-
-- **Path**: id - ID tranh chấp
-- **Header**: Authorization: Bearer accessToken
-
-- **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-{
-  "id": "string",
-  "orderId": "string",
-  "userId": "string",
-  "sellerId": "string",
-  "issueType": "string",
-  "status": "string",
-  "createdAt": "timestamp",
-  "updatedAt": "timestamp",
-  "resolution": "string",
-  "resolvedAt": "timestamp",
-  "order": {
-    "id": "string",
-    "createdAt": "timestamp",
-    "total": "number"
-  },
-  "user": {
-    "id": "string",
-    "fullName": "string"
-  },
-  "seller": {
-    "id": "string",
-    "sellerName": "string"
-  },
-  "messages": [
-    {
-      "id": "string",
-      "senderId": "string",
-      "senderType": "string",
-      "message": "string",
-      "createdAt": "timestamp",
-      "attachmentUrl": "string"
-    }
-  ]
-}
-```
-
-### 16.3. Cập nhật trạng thái tranh chấp
-
-- **Method**: PUT
-- **Endpoint**: `/disputes/{id}/status`
-- **Tham số**:
-
-- **Path**: id - ID tranh chấp
-- **Header**: Authorization: Bearer accessToken
-- **Body**:
-
-```json
-{
-  "status": "string",
-  "resolution": "string"
-}
-```
-
-- **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-{
-  "id": "string",
-  "status": "string",
-  "updatedAt": "timestamp",
-  "resolution": "string",
-  "resolvedAt": "timestamp"
-}
-```
-
-### 16.4. Lấy tranh chấp của người dùng
-
-- **Method**: GET
-- **Endpoint**: `/users/{userId}/disputes`
-- **Tham số**:
-
-- **Path**: userId - ID người dùng
-- **Header**: Authorization: Bearer accessToken
-- **Query**:
-
-- status - Trạng thái tranh chấp (tùy chọn)
-- page - Số trang (mặc định: 1)
-- limit - Số lượng mỗi trang (mặc định: 20)
-
-- **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-{
-  "items": [
-    {
-      "id": "string",
-      "orderId": "string",
-      "sellerId": "string",
-      "issueType": "string",
-      "status": "string",
-      "createdAt": "timestamp",
-      "seller": {
-        "id": "string",
-        "sellerName": "string"
-      }
-    }
-  ],
-  "total": "number",
-  "page": "number",
-  "limit": "number",
-  "totalPages": "number"
-}
-```
-
-### 16.5. Lấy tranh chấp của người bán
-
-- **Method**: GET
-- **Endpoint**: `/sellers/{sellerId}/disputes`
-- **Tham số**:
-
-- **Path**: sellerId - ID người bán
-- **Header**: Authorization: Bearer accessToken
-- **Query**:
-
-- status - Trạng thái tranh chấp (tùy chọn)
-- page - Số trang (mặc định: 1)
-- limit - Số lượng mỗi trang (mặc định: 20)
-
-- **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-{
-  "items": [
-    {
-      "id": "string",
-      "orderId": "string",
-      "userId": "string",
-      "issueType": "string",
-      "status": "string",
-      "createdAt": "timestamp",
-      "user": {
-        "id": "string",
-        "fullName": "string"
-      }
-    }
-  ],
-  "total": "number",
-  "page": "number",
-  "limit": "number",
-  "totalPages": "number"
-}
-```
-
-### 16.6. Thêm tin nhắn vào tranh chấp
-
-- **Method**: POST
-- **Endpoint**: `/disputes/{id}/messages`
-- **Tham số**:
-
-- **Path**: id - ID tranh chấp
-- **Header**: Authorization: Bearer accessToken
-- **Body**:
-
-```json
-{
-  "senderId": "string",
-  "senderType": "string",
-  "message": "string",
-  "attachmentUrl": "string"
-}
-```
-
-- **Output thành công**:
-
-- **Status**: 201 Created
-- **Response**:
-
-```json
-{
-  "id": "string",
-  "disputeId": "string",
-  "senderId": "string",
-  "senderType": "string",
-  "message": "string",
-  "createdAt": "timestamp",
-  "attachmentUrl": "string"
-}
-```
-
-## 17. Analytics Service (Dịch vụ Phân tích)
-
-**Trách nhiệm**: Thu thập và phân tích dữ liệu người dùng và sản phẩm.
-
-**Bảng dữ liệu**:
-
-- `search_logs`
-- `product_views`
-- `user_activities`
-
-**APIs**:
-
-### 17.1. Ghi lại truy vấn tìm kiếm
-
-- **Method**: POST
-- **Endpoint**: `/analytics/search`
-- **Tham số**:
-
-- **Body**:
-
-```json
-{
-  "userId": "string",
-  "query": "string"
-}
-```
-
-- **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -3949,57 +3230,218 @@
 {
   "id": "string",
   "userId": "string",
-  "query": "string",
+  "entityId": "string",
+  "entityType": "string",
+  "interactionType": "string",
   "createdAt": "timestamp"
 }
 ```
 
-### 17.2. Ghi lại lượt xem sản phẩm
+### 15.4. Cập nhật sở thích người dùng
 
-- **Method**: POST
-- **Endpoint**: `/analytics/product-view`
+- **Method**: PUT
+- **Endpoint**: `/suggestions/users/{userId}/preferences`
 - **Tham số**:
-
+- **Path**: userId - ID người dùng
+- **Header**: Authorization: Bearer accessToken
 - **Body**:
 
 ```json
 {
-  "userId": "string",
-  "productId": "string",
-  "durationSeconds": "number"
+  "preferences": [
+    {
+      "key": "string",
+      "value": "string"
+    }
+  ]
 }
 ```
 
 - **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
 
+```json
+{
+  "userId": "string",
+  "preferences": [
+    {
+      "key": "string",
+      "value": "string"
+    }
+  ],
+  "updatedAt": "timestamp"
+}
+```
+
+### 15.5. Lấy sở thích người dùng
+
+- **Method**: GET
+- **Endpoint**: `/suggestions/users/{userId}/preferences`
+- **Tham số**:
+- **Path**: userId - ID người dùng
+- **Header**: Authorization: Bearer accessToken
+- **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
+
+```json
+{
+  "userId": "string",
+  "preferences": [
+    {
+      "key": "string",
+      "value": "string"
+    }
+  ],
+  "updatedAt": "timestamp"
+}
+```
+
+## 16. Content Moderation Service (Dịch vụ Kiểm duyệt nội dung)
+
+**Trách nhiệm**: Hỗ trợ kiểm duyệt nội dung tự động để đảm bảo tuân thủ quy định.
+
+**Bảng dữ liệu**:
+
+- `moderation_requests`
+- `moderation_results`
+- `moderation_rules`
+
+**APIs**:
+
+### 16.1. Kiểm duyệt văn bản
+
+- **Method**: POST
+- **Endpoint**: `/moderation/text`
+- **Tham số**:
+- **Header**: Authorization: Bearer accessToken
+- **Body**:
+
+```json
+{
+  "text": "string",
+  "contextType": "string",
+  "entityId": "string"
+}
+```
+
+- **Output thành công**:
 - **Status**: 200 OK
 - **Response**:
 
 ```json
 {
   "id": "string",
-  "userId": "string",
-  "productId": "string",
-  "viewCount": "number",
-  "lastViewed": "timestamp",
-  "durationSeconds": "number"
+  "isApproved": "boolean",
+  "score": "number",
+  "categories": [
+    {
+      "name": "string",
+      "score": "number"
+    }
+  ],
+  "flaggedContent": [
+    {
+      "text": "string",
+      "category": "string",
+      "score": "number"
+    }
+  ]
 }
 ```
 
-### 17.3. Lấy sản phẩm thịnh hành
+### 16.2. Kiểm duyệt hình ảnh
 
-- **Method**: GET
-- **Endpoint**: `/analytics/trending-products`
+- **Method**: POST
+- **Endpoint**: `/moderation/image`
 - **Tham số**:
+- **Header**: Authorization: Bearer accessToken
+- **Body**:
 
-- **Query**:
-
-- categoryId - ID danh mục (tùy chọn)
-- limit - Số lượng (mặc định: 10)
-- period - Khoảng thời gian (day, week, month)
+```json
+{
+  "imageUrl": "string",
+  "contextType": "string",
+  "entityId": "string"
+}
+```
 
 - **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
 
+```json
+{
+  "id": "string",
+  "isApproved": "boolean",
+  "score": "number",
+  "categories": [
+    {
+      "name": "string",
+      "score": "number"
+    }
+  ],
+  "flaggedContent": [
+    {
+      "boundingBox": {
+        "x": "number",
+        "y": "number",
+        "width": "number",
+        "height": "number"
+      },
+      "category": "string",
+      "score": "number"
+    }
+  ]
+}
+```
+
+### 16.3. Lấy kết quả kiểm duyệt
+
+- **Method**: GET
+- **Endpoint**: `/moderation/results/{id}`
+- **Tham số**:
+- **Path**: id - ID kết quả kiểm duyệt
+- **Header**: Authorization: Bearer accessToken
+- **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
+
+```json
+{
+  "id": "string",
+  "requestId": "string",
+  "contentType": "string",
+  "entityId": "string",
+  "isApproved": "boolean",
+  "score": "number",
+  "categories": [
+    {
+      "name": "string",
+      "score": "number"
+    }
+  ],
+  "flaggedContent": [
+    {
+      "content": "string",
+      "category": "string",
+      "score": "number"
+    }
+  ],
+  "createdAt": "timestamp"
+}
+```
+
+### 16.4. Lấy quy tắc kiểm duyệt
+
+- **Method**: GET
+- **Endpoint**: `/moderation/rules`
+- **Tham số**:
+- **Header**: Authorization: Bearer accessToken
+- **Query**:
+- contextType - Loại ngữ cảnh (tùy chọn)
+- **Output thành công**:
 - **Status**: 200 OK
 - **Response**:
 
@@ -4008,50 +3450,239 @@
   {
     "id": "string",
     "name": "string",
-    "basePrice": "number",
-    "imageUrl": "string",
-    "viewCount": "number",
-    "soldCount": "number",
-    "category": {
-      "id": "string",
-      "name": "string"
+    "description": "string",
+    "contextType": "string",
+    "thresholds": {
+      "categoryName": "number"
     },
-    "seller": {
-      "id": "string",
-      "sellerName": "string"
-    }
+    "isActive": "boolean"
   }
 ]
 ```
 
-### 17.4. Lấy từ khóa tìm kiếm phổ biến
+### 16.5. Cập nhật quy tắc kiểm duyệt
 
-- **Method**: GET
-- **Endpoint**: `/analytics/popular-searches`
+- **Method**: PUT
+- **Endpoint**: `/moderation/rules/{id}`
 - **Tham số**:
+- **Path**: id - ID quy tắc
+- **Header**: Authorization: Bearer accessToken
+- **Body**:
 
-- **Query**:
-
-- limit - Số lượng (mặc định: 10)
-- period - Khoảng thời gian (day, week, month)
+```json
+{
+  "name": "string",
+  "description": "string",
+  "thresholds": {
+    "categoryName": "number"
+  },
+  "isActive": "boolean"
+}
+```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
 ```json
-[
-  {
-    "query": "string",
-    "count": "number"
+{
+  "id": "string",
+  "name": "string",
+  "description": "string",
+  "contextType": "string",
+  "thresholds": {
+    "categoryName": "number"
+  },
+  "isActive": "boolean",
+  "updatedAt": "timestamp"
+}
+```
+
+## 17. Scheduler Service (Dịch vụ Lịch trình)
+
+**Trách nhiệm**: Lên lịch và thực hiện các tác vụ tự động như huỷ tài khoản, gửi email nhắc nhở.
+
+**Bảng dữ liệu**:
+
+- `scheduled_tasks`
+- `task_executions`
+
+**APIs**:
+
+### 17.1. Tạo tác vụ lịch trình
+
+- **Method**: POST
+- **Endpoint**: `/scheduler/tasks`
+- **Tham số**:
+- **Header**: Authorization: Bearer accessToken
+- **Body**:
+
+```json
+{
+  "taskType": "string",
+  "scheduledTime": "timestamp",
+  "recurrence": "string",
+  "data": {
+    "key1": "value1",
+    "key2": "value2"
   }
-]
+}
+```
+
+- **Output thành công**:
+- **Status**: 201 Created
+- **Response**:
+
+```json
+{
+  "id": "string",
+  "taskType": "string",
+  "scheduledTime": "timestamp",
+  "recurrence": "string",
+  "status": "pending",
+  "createdAt": "timestamp"
+}
+```
+
+### 17.2. Lấy danh sách tác vụ lịch trình
+
+- **Method**: GET
+- **Endpoint**: `/scheduler/tasks`
+- **Tham số**:
+- **Header**: Authorization: Bearer accessToken
+- **Query**:
+- status - Trạng thái tác vụ (tùy chọn)
+- taskType - Loại tác vụ (tùy chọn)
+- page - Số trang (mặc định: 1)
+- limit - Số lượng mỗi trang (mặc định: 20)
+- **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
+
+```json
+{
+  "items": [
+    {
+      "id": "string",
+      "taskType": "string",
+      "scheduledTime": "timestamp",
+      "recurrence": "string",
+      "status": "string",
+      "createdAt": "timestamp",
+      "lastExecutedAt": "timestamp"
+    }
+  ],
+  "total": "number",
+  "page": "number",
+  "limit": "number",
+  "totalPages": "number"
+}
+```
+
+### 17.3. Lấy chi tiết tác vụ lịch trình
+
+- **Method**: GET
+- **Endpoint**: `/scheduler/tasks/{id}`
+- **Tham số**:
+- **Path**: id - ID tác vụ
+- **Header**: Authorization: Bearer accessToken
+- **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
+
+```json
+{
+  "id": "string",
+  "taskType": "string",
+  "scheduledTime": "timestamp",
+  "recurrence": "string",
+  "status": "string",
+  "data": {
+    "key1": "value1",
+    "key2": "value2"
+  },
+  "createdAt": "timestamp",
+  "lastExecutedAt": "timestamp",
+  "executions": [
+    {
+      "id": "string",
+      "status": "string",
+      "startedAt": "timestamp",
+      "completedAt": "timestamp",
+      "result": "string"
+    }
+  ]
+}
+```
+
+### 17.4. Cập nhật tác vụ lịch trình
+
+- **Method**: PUT
+- **Endpoint**: `/scheduler/tasks/{id}`
+- **Tham số**:
+- **Path**: id - ID tác vụ
+- **Header**: Authorization: Bearer accessToken
+- **Body**:
+
+```json
+{
+  "scheduledTime": "timestamp",
+  "recurrence": "string",
+  "status": "string",
+  "data": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+```
+
+- **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
+
+```json
+{
+  "id": "string",
+  "scheduledTime": "timestamp",
+  "recurrence": "string",
+  "status": "string",
+  "updatedAt": "timestamp"
+}
+```
+
+### 17.5. Xóa tác vụ lịch trình
+
+- **Method**: DELETE
+- **Endpoint**: `/scheduler/tasks/{id}`
+- **Tham số**:
+- **Path**: id - ID tác vụ
+- **Header**: Authorization: Bearer accessToken
+- **Output thành công**:
+- **Status**: 204 No Content
+
+### 17.6. Thực thi tác vụ ngay lập tức
+
+- **Method**: POST
+- **Endpoint**: `/scheduler/tasks/{id}/execute`
+- **Tham số**:
+- **Path**: id - ID tác vụ
+- **Header**: Authorization: Bearer accessToken
+- **Output thành công**:
+- **Status**: 202 Accepted
+- **Response**:
+
+```json
+{
+  "id": "string",
+  "taskId": "string",
+  "status": "processing",
+  "startedAt": "timestamp"
+}
 ```
 
 ## 18. Internationalization Service (Dịch vụ Đa ngôn ngữ)
 
-**Trách nhiệm**: Quản lý bản dịch và hỗ trợ đa ngôn ngữ.
+**Trách nhiệm**: Hỗ trợ nhiều ngôn ngữ khác nhau cho nền tảng.
 
 **Bảng dữ liệu**:
 
@@ -4065,7 +3696,6 @@
 - **Method**: GET
 - **Endpoint**: `/languages`
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -4085,15 +3715,11 @@
 - **Method**: GET
 - **Endpoint**: `/translations/{languageId}/{entityType}/{entityId}`
 - **Tham số**:
-
 - **Path**:
-
 - languageId - ID ngôn ngữ
 - entityType - Loại thực thể (product, category, etc.)
 - entityId - ID thực thể
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -4112,7 +3738,6 @@
 - **Method**: POST
 - **Endpoint**: `/translations`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -4127,7 +3752,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -4147,7 +3771,6 @@
 - **Method**: PUT
 - **Endpoint**: `/translations/{id}`
 - **Tham số**:
-
 - **Path**: id - ID bản dịch
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -4159,7 +3782,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -4172,7 +3794,7 @@
 
 ## 19. Referral Service (Dịch vụ Giới thiệu)
 
-**Trách nhiệm**: Quản lý chương trình giới thiệu và phần thưởng.
+**Trách nhiệm**: Quản lý chương trình giới thiệu bạn bè và phần thưởng.
 
 **Bảng dữ liệu**:
 
@@ -4185,7 +3807,6 @@
 - **Method**: POST
 - **Endpoint**: `/referrals`
 - **Tham số**:
-
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
 
@@ -4197,7 +3818,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
@@ -4216,17 +3836,13 @@
 - **Method**: GET
 - **Endpoint**: `/users/{userId}/referrals`
 - **Tham số**:
-
 - **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
 - **Query**:
-
 - status - Trạng thái giới thiệu (tùy chọn)
 - page - Số trang (mặc định: 1)
 - limit - Số lượng mỗi trang (mặc định: 20)
-
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -4265,7 +3881,6 @@
 - **Method**: PUT
 - **Endpoint**: `/referrals/{id}/status`
 - **Tham số**:
-
 - **Path**: id - ID giới thiệu
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -4278,7 +3893,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -4295,7 +3909,6 @@
 - **Method**: POST
 - **Endpoint**: `/referrals/{id}/reward`
 - **Tham số**:
-
 - **Path**: id - ID giới thiệu
 - **Header**: Authorization: Bearer accessToken
 - **Body**:
@@ -4308,7 +3921,6 @@
 ```
 
 - **Output thành công**:
-
 - **Status**: 200 OK
 - **Response**:
 
@@ -4320,92 +3932,204 @@
 }
 ```
 
-## 20. Subscription Service (Dịch vụ Đăng ký)
+## 20. Media Service (Dịch vụ Media)
 
-**Trách nhiệm**: Quản lý gói đăng ký và thanh toán định kỳ.
+**Trách nhiệm**: Quản lý các tài nguyên đa phương tiện như ảnh, video và tài liệu.
 
 **Bảng dữ liệu**:
 
-- `subscription_plans`
-- `user_subscriptions`
+- `media_files`
+- `media_folders`
 
 **APIs**:
 
-### 20.1. Lấy danh sách gói đăng ký
-
-- **Method**: GET
-- **Endpoint**: `/subscription-plans`
-- **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-[
-  {
-    "id": "string",
-    "name": "string",
-    "description": "string",
-    "price": "number",
-    "durationDays": "number",
-    "features": "string",
-    "isActive": "boolean"
-  }
-]
-```
-
-### 20.2. Đăng ký gói cho người dùng
+### 20.1. Tải lên tệp media
 
 - **Method**: POST
-- **Endpoint**: `/users/{userId}/subscriptions`
+- **Endpoint**: `/media/upload`
 - **Tham số**:
-
-- **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
-- **Body**:
-
-```json
-{
-  "planId": "string",
-  "paymentMethod": "string",
-  "autoRenew": "boolean"
-}
-```
-
+- **Body**: Form-data với các trường:
+- file - Tệp cần tải lên
+- folderId - ID thư mục (tùy chọn)
+- description - Mô tả (tùy chọn)
+- tags - Thẻ (tùy chọn)
 - **Output thành công**:
-
 - **Status**: 201 Created
 - **Response**:
 
 ```json
 {
   "id": "string",
-  "userId": "string",
-  "planId": "string",
-  "startDate": "timestamp",
-  "endDate": "timestamp",
-  "status": "active",
-  "autoRenew": "boolean",
-  "paymentMethod": "string",
-  "plan": {
-    "name": "string",
-    "price": "number",
-    "features": "string"
+  "fileName": "string",
+  "fileType": "string",
+  "fileSize": "number",
+  "url": "string",
+  "thumbnailUrl": "string",
+  "folderId": "string",
+  "description": "string",
+  "tags": ["string"],
+  "uploadedAt": "timestamp",
+  "dimensions": {
+    "width": "number",
+    "height": "number"
   }
 }
 ```
 
-### 20.3. Lấy đăng ký của người dùng
+### 20.2. Lấy danh sách tệp media
 
 - **Method**: GET
-- **Endpoint**: `/users/{userId}/subscriptions`
+- **Endpoint**: `/media/files`
 - **Tham số**:
-
-- **Path**: userId - ID người dùng
 - **Header**: Authorization: Bearer accessToken
+- **Query**:
+- folderId - ID thư mục (tùy chọn)
+- fileType - Loại tệp (tùy chọn)
+- search - Từ khóa tìm kiếm (tùy chọn)
+- page - Số trang (mặc định: 1)
+- limit - Số lượng mỗi trang (mặc định: 20)
+- **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
+
+```json
+{
+  "items": [
+    {
+      "id": "string",
+      "fileName": "string",
+      "fileType": "string",
+      "fileSize": "number",
+      "url": "string",
+      "thumbnailUrl": "string",
+      "folderId": "string",
+      "uploadedAt": "timestamp"
+    }
+  ],
+  "total": "number",
+  "page": "number",
+  "limit": "number",
+  "totalPages": "number"
+}
+```
+
+### 20.3. Lấy chi tiết tệp media
+
+- **Method**: GET
+- **Endpoint**: `/media/files/{id}`
+- **Tham số**:
+- **Path**: id - ID tệp
+- **Header**: Authorization: Bearer accessToken
+- **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
+
+```json
+{
+  "id": "string",
+  "fileName": "string",
+  "fileType": "string",
+  "fileSize": "number",
+  "url": "string",
+  "thumbnailUrl": "string",
+  "folderId": "string",
+  "description": "string",
+  "tags": ["string"],
+  "uploadedAt": "timestamp",
+  "dimensions": {
+    "width": "number",
+    "height": "number"
+  },
+  "metadata": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+```
+
+### 20.4. Cập nhật thông tin tệp media
+
+- **Method**: PUT
+- **Endpoint**: `/media/files/{id}`
+- **Tham số**:
+- **Path**: id - ID tệp
+- **Header**: Authorization: Bearer accessToken
+- **Body**:
+
+```json
+{
+  "fileName": "string",
+  "folderId": "string",
+  "description": "string",
+  "tags": ["string"]
+}
+```
 
 - **Output thành công**:
+- **Status**: 200 OK
+- **Response**:
 
+```json
+{
+  "id": "string",
+  "fileName": "string",
+  "folderId": "string",
+  "description": "string",
+  "tags": ["string"],
+  "updatedAt": "timestamp"
+}
+```
+
+### 20.5. Xóa tệp media
+
+- **Method**: DELETE
+- **Endpoint**: `/media/files/{id}`
+- **Tham số**:
+- **Path**: id - ID tệp
+- **Header**: Authorization: Bearer accessToken
+- **Output thành công**:
+- **Status**: 204 No Content
+
+### 20.6. Tạo thư mục media
+
+- **Method**: POST
+- **Endpoint**: `/media/folders`
+- **Tham số**:
+- **Header**: Authorization: Bearer accessToken
+- **Body**:
+
+```json
+{
+  "name": "string",
+  "parentId": "string",
+  "description": "string"
+}
+```
+
+- **Output thành công**:
+- **Status**: 201 Created
+- **Response**:
+
+```json
+{
+  "id": "string",
+  "name": "string",
+  "parentId": "string",
+  "description": "string",
+  "createdAt": "timestamp"
+}
+```
+
+### 20.7. Lấy danh sách thư mục media
+
+- **Method**: GET
+- **Endpoint**: `/media/folders`
+- **Tham số**:
+- **Header**: Authorization: Bearer accessToken
+- **Query**:
+- parentId - ID thư mục cha (tùy chọn)
+- **Output thành công**:
 - **Status**: 200 OK
 - **Response**:
 
@@ -4413,78 +4137,11 @@
 [
   {
     "id": "string",
-    "planId": "string",
-    "startDate": "timestamp",
-    "endDate": "timestamp",
-    "status": "string",
-    "autoRenew": "boolean",
-    "paymentMethod": "string",
-    "plan": {
-      "id": "string",
-      "name": "string",
-      "price": "number",
-      "features": "string"
-    }
+    "name": "string",
+    "parentId": "string",
+    "description": "string",
+    "createdAt": "timestamp",
+    "fileCount": "number"
   }
 ]
-```
-
-### 20.4. Cập nhật đăng ký
-
-- **Method**: PUT
-- **Endpoint**: `/users/{userId}/subscriptions/{subscriptionId}`
-- **Tham số**:
-
-- **Path**:
-
-- userId - ID người dùng
-- subscriptionId - ID đăng ký
-
-- **Header**: Authorization: Bearer accessToken
-- **Body**:
-
-```json
-{
-  "autoRenew": "boolean",
-  "paymentMethod": "string"
-}
-```
-
-- **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-{
-  "id": "string",
-  "autoRenew": "boolean",
-  "paymentMethod": "string"
-}
-```
-
-### 20.5. Hủy đăng ký
-
-- **Method**: DELETE
-- **Endpoint**: `/users/{userId}/subscriptions/{subscriptionId}`
-- **Tham số**:
-
-- **Path**:
-
-- userId - ID người dùng
-- subscriptionId - ID đăng ký
-
-- **Header**: Authorization: Bearer accessToken
-
-- **Output thành công**:
-
-- **Status**: 200 OK
-- **Response**:
-
-```json
-{
-  "id": "string",
-  "status": "cancelled",
-  "endDate": "timestamp"
-}
 ```
