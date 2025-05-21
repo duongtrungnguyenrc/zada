@@ -26,9 +26,9 @@
 	path = apps/media-service
 	url = https://github.com/duongtrungnguyenrc/zada-media-service
 
-[submodule "shop-service"]
-	path = apps/shop-service
-	url = https://github.com/duongtrungnguyenrc/zada-shop-service
+[submodule "seller-service"]
+	path = apps/seller-service
+	url = https://github.com/duongtrungnguyenrc/zada-seller-service
 
 [submodule "product-service"]
 	path = apps/product-service
